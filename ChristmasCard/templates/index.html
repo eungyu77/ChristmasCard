@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>크리스마스 편지함</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+</head>
+<body>
+    <h1>🎄 크리스마스 편지함 🎄</h1>
+    
+   <!-- 편지 쓰기 버튼 -->
+   <button onclick="toggleWriteLetter()">🖋️ 편지 쓰기</button>
+
+   <!-- 편지 쓰기 섹션 (초기 상태는 숨김) -->
+   <div id="write-letter-section" style="display:none;">
+       <h2>편지 쓰기</h2>
+       <form action="{{ url_for('write_letter') }}" method="post" enctype="multipart/form-data">
+           <label for="name">이름:</label>
+           <input type="text" id="name" name="name" required>
+           
+           <label for="content">내용:</label>
+           <textarea id="content" name="content" required></textarea>
+           
+           <label for="image">이미지 첨부:</label>
+           <input type="file" id="image" name="image" accept="image/*">
+           
+           <button type="submit">🎁 편지 보내기</button>
+       </form>
+   </div>
+
+   <!-- 받은 편지 목록 섹션 -->
+   <div class="letter-list">
+       {% for letter in letters %}
+           <div class="letter" onclick="toggleLetterContent(event, 'content-{{ loop.index }}')">
+               <h3>From: {{ letter.name }}</h3>
+               {% if letter.image %}
+                   <img src="{{ url_for('static', filename='uploads/' + letter.image) }}" alt="첨부 이미지">
+               {% endif %}
+               <div id="content-{{ loop.index }}" class="letter-content">
+                   <p>📅 {{ letter.date }}</p>
+                   <p>{{ letter.content }}</p>
+               </div>
+           </div>
+       {% endfor %}
+   </div>
+
+   <script>
+       function toggleWriteLetter() {
+           const writeLetterSection = document.getElementById('write-letter-section');
+           if (writeLetterSection.style.display === 'none' || writeLetterSection.style.display === '') {
+               writeLetterSection.style.display = 'block';
+           } else {
+               writeLetterSection.style.display = 'none';
+           }
+       }
+
+       function toggleLetterContent(event, letterId) {
+           event.stopPropagation(); // 이벤트 버블링 방지
+           const content = document.getElementById(letterId);
+           if (content.style.display === 'none' || content.style.display === '') {
+               content.style.display = 'block';
+           } else {
+               content.style.display = 'none';
+           }
+       }
+   </script>
+
+</body>
+</html>v

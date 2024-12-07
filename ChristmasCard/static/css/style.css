@@ -1,0 +1,93 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a472a;  /* 짙은 녹색 배경 */
+    color: #ffffff;
+    max-width: 600px; /* 전체 너비를 줄여 한 줄에 하나만 보이도록 설정 */
+    margin: 0 auto;
+    padding: 20px;
+    background-image: url('/static/images/snowflakes.png');  /* 눈송이 배경 이미지 */
+}
+
+h1 {
+    text-align: center;
+    color: #d4af37;  /* 금색 제목 */
+    text-shadow: 2px 2px 4px #000000;
+}
+
+/* 받은 편지 목록 스타일 */
+.letter-list {
+    margin-top: 30px;
+}
+
+.letter {
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    background-image: url('/static/images/letter-bg.png');  /* 편지지 배경 이미지 */
+    background-size: cover;
+
+    /* 편지지 크기 조정 */
+    width: 100%; /* 가로 길이를 전체 너비로 설정 */
+    height: auto; /* 세로 길이는 자동으로 조정 */
+    
+    margin-bottom: 30px; /* 아래쪽 여백 증가 */
+}
+
+.letter h3 {
+    color: #c41e3a;  /* 크리스마스 레드 */
+    margin-top: 0;
+}
+
+.letter img {
+    max-width: 50px; /* 첨부 이미지 크기 조정 */
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* 편지 내용 숨김 스타일 */
+.letter-content {
+    display: none; /* 기본적으로 내용 숨김 */
+}
+
+/* 편지 쓰기 폼 스타일 */
+form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 2px solid #c41e3a; /* 크리스마스 레드 테두리 */
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+}
+
+button {
+    background-color: #c41e3a; /* 크리스마스 레드 */
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #a51a2d; /* 다크 레드 */
+}
+
+/* 링크 스타일 */
+a {
+    color: #d4af37; /* 금색 링크 */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
