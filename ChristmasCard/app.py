@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
-letters = []
+letters = [] 
 
 @app.route('/')
 def index():
