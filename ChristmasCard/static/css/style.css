@@ -25,7 +25,7 @@ h1 {
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    background-image: url('/static/images/letter-bg.png');  /* 편지지 배경 이미지 */
+    background-image: url('/static/images/letter-bg.png');
     background-size: cover;
 
     /* 편지지 크기 조정 */
@@ -33,6 +33,13 @@ h1 {
     height: auto; /* 세로 길이는 자동으로 조정 */
     
     margin-bottom: 30px; /* 아래쪽 여백 증가 */
+
+    /* 추가된 스타일 */
+    word-wrap: break-word; /* 긴 단어를 강제로 줄바꿈 */
+    overflow-wrap: break-word; /* 모던 브라우저를 위한 속성 */
+    white-space: pre-wrap; /* 공백과 줄바꿈 유지 */
+    max-height: 300px; /* 최대 높이 설정 */
+    overflow-y: auto; /* 세로 스크롤바 추가 */
 }
 
 .letter h3 {
