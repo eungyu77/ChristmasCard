@@ -32,19 +32,26 @@
 
    <!-- 받은 편지 목록 섹션 -->
    <div class="letter-list">
-       {% for letter in letters %}
-           <div class="letter" onclick="toggleLetterContent(event, 'content-{{ loop.index }}')">
-               <h3>From: {{ letter.name }}</h3>
-               {% if letter.image %}
-                   <img src="{{ url_for('static', filename='uploads/' + letter.image) }}" alt="첨부 이미지">
-               {% endif %}
-               <div id="content-{{ loop.index }}" class="letter-content">
-                   <p>📅 {{ letter.date }}</p>
-                   <p>{{ letter.content }}</p>
-               </div>
-           </div>
-       {% endfor %}
-   </div>
+    {% for letter in letters %}
+        <div class="letter" onclick="toggleLetterContent(event, 'content-{{ loop.index0 }}')">
+            <h3>From: {{ letter.name }}</h3>
+            {% if letter.image %}
+                <img src="{{ url_for('static', filename='uploads/' + letter.image) }}" alt="첨부 이미지">
+            {% endif %}
+            <div id="content-{{ loop.index0 }}" class="letter-content">
+    <p>📅 {{ letter.date }}</p>
+    <p>{{ letter.content }}</p>
+    <div class="letter-actions">
+        <a href="{{ url_for('edit_letter', index=loop.index0) }}" class="edit-btn">✏️ 수정</a>
+        <form action="{{ url_for('delete_letter', index=loop.index0) }}" method="POST" onsubmit="return confirm('정말로 이 편지를 삭제하시겠습니까?');">
+            <button type="submit" class="delete-btn">🗑️ 삭제</button>
+        </form>
+    </div>
+</div>
+
+        </div>
+    {% endfor %}
+</div>
 
    <script>
        function toggleWriteLetter() {
@@ -65,8 +72,8 @@
                content.style.display = 'none';
            }
        }
-       
-   </script>
 
+   </script>
+    
 </body>
 </html>

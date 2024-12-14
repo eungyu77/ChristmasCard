@@ -1,62 +1,39 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #1a472a;  /* 짙은 녹색 배경 */
+    background-color: #1a472a;  
     color: #ffffff;
-    max-width: 600px; /* 전체 너비를 줄여 한 줄에 하나만 보이도록 설정 */
+    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-image: url('/static/images/snowflakes.png');  /* 눈송이 배경 이미지 */
+    position: relative;
+    overflow: hidden;
 }
 
-h1 {
-    text-align: center;
-    color: #d4af37;  /* 금색 제목 */
-    text-shadow: 2px 2px 4px #000000;
+.snowflake {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    filter: blur(1px);
 }
 
-/* 받은 편지 목록 스타일 */
+
 .letter-list {
-    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end; /* 오른쪽 정렬로 변경 */
+    margin-top: 50px;
 }
 
 .letter {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #ffffff; /* 편지지 배경색을 흰색으로 설정 */
+    color: #000000; /* 텍스트 색상을 검정으로 변경 */
+    width: calc(50% - 20px);
+    margin: 0 0 30px 20px; /* 왼쪽 마진만 추가 */
+    padding: 30px;
     border-radius: 10px;
-    padding: 20px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    background-image: url('/static/images/letter-bg.png');
-    background-size: cover;
-
-    /* 편지지 크기 조정 */
-    width: 100%; /* 가로 길이를 전체 너비로 설정 */
-    height: auto; /* 세로 길이는 자동으로 조정 */
-    
-    margin-bottom: 30px; /* 아래쪽 여백 증가 */
-
-    /* 추가된 스타일 */
-    word-wrap: break-word; /* 긴 단어를 강제로 줄바꿈 */
-    overflow-wrap: break-word; /* 모던 브라우저를 위한 속성 */
-    white-space: pre-wrap; /* 공백과 줄바꿈 유지 */
-    max-height: 300px; /* 최대 높이 설정 */
-    overflow-y: auto; /* 세로 스크롤바 추가 */
-}
-
-.letter h3 {
-    color: #c41e3a;  /* 크리스마스 레드 */
-    margin-top: 0;
-}
-
-.letter img {
-    max-width: 50px; /* 첨부 이미지 크기 조정 */
-    height: auto;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-/* 편지 내용 숨김 스타일 */
-.letter-content {
-    display: none; /* 기본적으로 내용 숨김 */
 }
 
 /* 편지 쓰기 폼 스타일 */
@@ -65,19 +42,25 @@ form {
     padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
-    border: 2px solid #c41e3a; /* 크리스마스 레드 테두리 */
+    border: 2px solid #c41e3a;
 }
 
-input, textarea {
+form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+}
+
+form input, form textarea {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+    margin-bottom: 15px;
     border: 1px solid #cccccc;
+    border-radius: 5px;
 }
 
 button {
-    background-color: #c41e3a; /* 크리스마스 레드 */
+    background-color: #c41e3a;
     color: #ffffff;
     padding: 10px 20px;
     border: none;
@@ -86,15 +69,19 @@ button {
 }
 
 button:hover {
-    background-color: #a51a2d; /* 다크 레드 */
+    background-color: #a51a2d;
 }
 
-/* 링크 스타일 */
-a {
-    color: #d4af37; /* 금색 링크 */
+.edit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
     text-decoration: none;
+    border-radius: 3px;
+    margin-right: 10px;
 }
 
-a:hover {
-    text-decoration: underline;
+.letter-actions {
+    display: flex;
+    align-items: center;
 }
