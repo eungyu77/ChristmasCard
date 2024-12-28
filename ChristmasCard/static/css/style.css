@@ -85,3 +85,35 @@ button:hover {
     display: flex;
     align-items: center;
 }
+.letter-content {
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* 표시할 줄 수 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  html, body {
+    height: 100%; /* 전체 높이를 100%로 설정 */
+    margin: 0; /* 기본 여백 제거 */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a472a;  
+    color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+
+    min-height: 100vh; /* 뷰포트 높이의 100% */
+    overflow-y: auto; /* 세로 스크롤바 활성화 */
+}
+
+.letter-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end; /* 오른쪽 정렬로 변경 */
+    margin-top: 50px;
+}
+
+/* 나머지 스타일은 기존과 동일하게 유지 */
+

@@ -2,6 +2,9 @@ from flask import Flask, render_template, request, redirect, url_for
 from datetime import datetime
 import os
 
+if not os.path.exists('static/uploads'):
+    os.makedirs('static/uploads')
+
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
